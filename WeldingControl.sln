@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{6A2FA3AA-9446-4D17-97C9-05425CF4138F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeldingControl.Shared.Constants", "WeldingControl.Shared.Constants\WeldingControl.Shared.Constants.csproj", "{1ECD48CE-C9B2-462C-BA1F-F9947BF74DA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeldingControl.Shared.Constants", "WeldingControl.Shared.Constants\WeldingControl.Shared.Constants.csproj", "{1ECD48CE-C9B2-462C-BA1F-F9947BF74DA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
