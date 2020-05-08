@@ -8,7 +8,7 @@ using WeldingControl.Data.Infrastructure;
 
 namespace WeldingControl.Business.Core.Employees.Queries.GetCertificates
 {
-	public class GetCertificatesHandler : IRequestHandler<GetCertificatesHandler, CertificatesDto>
+	public class GetCertificatesHandler : IRequestHandler<GetCertificatesQuery, CertificatesDto>
 	{
         private readonly DomainContext _context;
 
@@ -19,20 +19,26 @@ namespace WeldingControl.Business.Core.Employees.Queries.GetCertificates
 
         public async Task<CertificatesDto> Handle(GetCertificatesQuery request, CancellationToken cancellationToken)
         {
-            var certificate = await _context.EmployeeCertificate
+            var certificate = await _context.EmployeeCertificates
                 .Select(x => new CertificatesDto
                 {
                     Id = x.Id,
-                    IssueDate = x.IssueDateId,
-                    ExpiresDate = x.ExpiresDateId,
-                    Thickness = x.ThicknessId,
-                    PipeOuterDiameter = x.PipeOuterDiameterId,
-                    Decision = x.DecisionId,
+                    IssueDate = x.IssueDate,
+                    ExpiresDate = x.ExpiresDate,
+                    Thickness = x.Thickness,
+                    EmployeeId = x.EmployeeId,
+                    PipeOuterDiameter = x.PipeOuterDiameter,
+                    Decision = x.Decision,
                     Employee = x.EmployeeId
                 })
                 .FirstOrDefaultAsync(cancellationToken);
 
             return certificate;
+        }
+
+        public Task<CertificatesDto> Handle(GetCertificatesHandler request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
         }
     }
 }
